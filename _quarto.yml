@@ -1,12 +1,22 @@
 project:
   type: website
+  output-dir: docs
 
 website:
   title: "alugue-ap.com"
+  page-footer:
+    background: "#000000"
+    #background: light
+    left: |
+      Developed by [Nion M. Dransfeld](https://nionmaron.com)
+    right: |
+      [Termos e Condições](/ts-and-cs.qmd)
+    border: false
   navbar:
     left:
       - href: index.qmd
         text: Home
+
 
 
 format:
@@ -17,3 +27,5 @@ format:
 
 editor: visual
 
+  
+  
