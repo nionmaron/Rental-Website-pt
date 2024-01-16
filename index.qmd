@@ -2,6 +2,17 @@
 title: "Aluga-se Apartamento"
 ---
 
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JMQK6TVF6H"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JMQK6TVF6H');
+</script>
+
+
 <i class="fas fa-map-marker-alt"></i> Brasil, Santa Catarina, Joinville / Bairro: Saguaçu Rua Água Marinha 540.
 
 -   compartilhar esse anuncio

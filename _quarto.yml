@@ -13,8 +13,6 @@ website:
     #background: light
     left: |
       [Termos e Condições](/ts-and-cs.qmd)
-    center: |
-      Developed by [Nion M. Dransfeld](https://nionmaron.com)
     border: false
   navbar:
     background: "#2E8BC0"

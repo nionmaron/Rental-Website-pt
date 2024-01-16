@@ -1,37 +1,54 @@
 ---
-title: "Terms and conditions"
+title: "Termos e Condições de Uso"
 page-layout: article
 sidebar: false
 toc: true
 title-block-banner: true
 ---
 
-## Legal disclaimer
+```{=html}
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termos e Condições de Uso</title>
+    <script>
+        function replaceSiteName() {
+            var siteName = "alugue-ap.com"; // Altere este valor para mudar o nome do site
+            document.querySelectorAll('.site-name').forEach(function(el) {
+                el.textContent = siteName;
+            });
+        }
+    </script>
+</head>
+<body onload="replaceSiteName()">
+    <h1>Termos e Condições de Uso do <span class="site-name"></span></h1>
 
-Statements of fact and opinion published on this website are those of the respective authors and contributors.
+    <h2>1. Aceitação dos Termos</h2>
+    <p>Ao acessar e utilizar o <span class="site-name"></span>, você concorda em cumprir estes Termos e Condições de Uso. Se não concordar com algum dos termos, não utilize este site.</p>
 
-The NionMaron website's content is created with responsibility and care. However, the blog disclaims all warranties, express and implied, regarding the accuracy of the information in its materials and on linked sites. The NionMaron website and its linked content are provided as-is. We do not guarantee the accuracy or reliability of the information. This disclaimer covers:
+    <h2>2. Descrição do Serviço</h2>
+    <p>O <span class="site-name"></span> oferece uma plataforma online para que proprietários e anunciantes possam listar imóveis para venda ou locação. O <span class="site-name"></span> não é uma imobiliária e não participa de nenhuma transação imobiliária.</p>
 
--   any implied warranties of merchantability and fitness for a particular purpose.
+    <h2>3. Responsabilidade do Conteúdo</h2>
+    <p>Todos os anúncios e conteúdos são de responsabilidade exclusiva dos usuários que os postam no <span class="site-name"></span>. O <span class="site-name"></span> não verifica a precisão, legalidade ou integridade de qualquer anúncio e se isenta de qualquer responsabilidade relacionada a isso.</p>
 
--   any liability for damage to your computer hardware, data, information, materials and business resulting from the information or the lack of information available.
+    <h2>4. Proibições</h2>
+    <p>É proibido postar no <span class="site-name"></span> conteúdo ilegal, enganoso, difamatório, discriminatório ou que viole direitos de terceiros. O <span class="site-name"></span> reserva-se o direito de remover qualquer anúncio que viole estas proibições.</p>
 
--   any errors, omissions, or inaccuracies in the information.
+    <h2>5. Direitos Autorais</h2>
+    <p>O conteúdo publicado pelos usuários no <span class="site-name"></span> deve respeitar direitos autorais. Conteúdos violando esses direitos serão removidos.</p>
+    <h2>6. Limitação de Responsabilidade</h2>
+<p>O <span class="site-name"></span> não será responsável por quaisquer danos diretos, indiretos, incidentais ou consequentes decorrentes do uso ou da incapacidade de usar o serviço.</p>
 
--   any decision made or action taken or not taken in reliance upon the information.
+<h2>7. Modificações dos Termos</h2>
+<p>O <span class="site-name"></span> reserva-se o direito de modificar estes Termos a qualquer momento. Sua continuidade no uso do site após tais modificações constitui aceitação dos novos Termos.</p>
 
-By using this site, you agree to these terms and conditions of use.
+<h2>8. Lei Aplicável e Jurisdição</h2>
+<p>Estes Termos serão regidos pelas leis do país onde o <span class="site-name"></span> opera. Qualquer disputa relacionada a estes Termos será submetida à jurisdição exclusiva dos tribunais desse país.</p>
 
-## Site content
+</body>
+</html>
 
-Where licence terms for individual articles, videos, images and other published content permit republication, you may do so in accordance with the stated terms of the respective licence(s).
-
-You are not permitted to republish this site in its entirety.
-
-## Software and services
-
-Source code and files for this site are available from [GitHub](https://github.com/nionmaron/Website-NionMaron).
-
-This site is built using [Quarto](https://quarto.org/), an open-source scientific and technical publishing system developed by [Posit](https://posit.co/). Quarto source code and software licences are available from [GitHub](https://github.com/quarto-dev).
-
-NionMaron is hosted by [Netlify](https://www.netlify.com/).
+```
