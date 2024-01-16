@@ -4,18 +4,21 @@ project:
 
 website:
   title: "alugue-ap.com"
+  site-url: https://alugue-ap.com/
+  favicon: "images/site.png"
+  twitter-card: true
+  open-graph: true
+
   page-footer:
     background: "#000000"
     #background: light
     left: |
-      Developed by [Nion M. Dransfeld](https://nionmaron.com)
-    right: |
       [Termos e Condições](/ts-and-cs.qmd)
+    center: |
+      Developed by [Nion M. Dransfeld](https://nionmaron.com)
     border: false
   navbar:
-    left:
-      - href: index.qmd
-        text: Home
+    background: "#2E8BC0"
 
 
 
@@ -23,9 +26,10 @@ format:
   html:
     theme: cosmo
     css: styles.css
-    toc: true
+    toc: false
 
 editor: visual
 
-  
+execute: 
+  freeze: auto
   

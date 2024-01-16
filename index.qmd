@@ -1,9 +1,572 @@
 ---
-title: "ALUQUE-AP.COM"
+title: "Aluga-se Apartamento"
 ---
 
-ewqdh qewfkwerf
+<i class="fas fa-map-marker-alt"></i> Brasil, Santa Catarina, Joinville / Bairro: Saguaçu Rua Água Marinha 540.
 
-teste
+-   compartilhar esse anuncio
 
-teste
+::: panel-tabset
+## Fotos
+
+```{=html}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .carousel {
+            width: 100%;
+            position: relative;
+            display: flex;
+            overflow: hidden;
+        }
+
+        .carousel img {
+            width: 100%;
+            transition: transform 0.5s ease;
+        }
+
+        .btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 100;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        .dot-container {
+            text-align: center;
+            padding: 10px;
+            background: rgba(0,0,0,0.2);
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active, .dot:hover {
+            background-color: #717171;
+        }
+    </style>
+</head>
+<body>
+
+<div class="carousel" id="carousel">
+    <button class="btn prev" onclick="moveSlide(-1)">&#10094;</button>
+    <img src="imagens/ap.png" alt="Image 1">
+    <img src="imagens/ap2.png" alt="Image 2">
+    <img src="imagens/ap3.png" alt="Image 3">
+    <!-- Adicione mais imagens conforme necessário -->
+    <button class="btn next" onclick="moveSlide(1)">&#10095;</button>
+</div>
+
+<div class="dot-container">
+    <span class="dot" onclick="currentSlide(0)"></span>
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <!-- Adicione mais pontos conforme necessário -->
+</div>
+
+<script>
+    var slideIndex = 0;
+    showSlides(slideIndex);
+
+    function moveSlide(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.querySelectorAll('.carousel img');
+        var dots = document.getElementsByClassName("dot");
+        if (n >= slides.length) {slideIndex = 0}
+        if (n < 0) {slideIndex = slides.length - 1}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.transform = "translateX(-" + slideIndex * 100 + "%)";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        dots[slideIndex].className += " active";
+    }
+</script>
+
+</body>
+</html>
+```
+```{r include=FALSE}
+# Instalar e carregar as bibliotecas necessárias
+if (!require("leaflet")) install.packages("leaflet")
+library(leaflet)
+
+if (!require("magrittr")) install.packages("magrittr")
+library(magrittr)
+
+# Definir as coordenadas
+ponto_central <- c(27.22, 138.26)
+escola1 <- c(-24.38, 1.45)
+escola2 <- c(-30.43, -112.73)
+
+# Criar o mapa
+mapa <- leaflet() %>%
+        addTiles() %>%  # Adiciona o mapa base
+        addMarkers(lng = ponto_central[2], lat = ponto_central[1], popup = "Ponto Central") %>%
+        addMarkers(lng = escola1[2], lat = escola1[1], popup = "Escola 1") %>%
+        addMarkers(lng = escola2[2], lat = escola2[1], popup = "Escola 2") %>%
+        addCircles(lng = ponto_central[2], lat = ponto_central[1], radius = 2000, color = "red", fillColor = "red", fillOpacity = 0.5) %>%
+        addCircles(lng = escola1[2], lat = escola1[1], radius = 2000, color = "blue", fillColor = "blue", fillOpacity = 0.5) %>%
+        addCircles(lng = escola2[2], lat = escola2[1], radius = 2000, color = "green", fillColor = "green", fillOpacity = 0.5)
+
+
+```
+
+## Mapa
+
+```{r}
+mapa
+```
+
+## Street View
+
+<iframe src="https://www.google.com/maps/embed?pb=!4v1705170245487!6m8!1m7!1sDC3O_UWJJxSLIjZQRfNSIw!2m2!1d-26.28140307415483!2d-48.8327370375557!3f102.99728367471585!4f2.059071045837925!5f0.7820865974627469" width="100%" height="450" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+
+</iframe>
+:::
+
+#### composição
+
+3 quartos - 1 suite - 2 banheiros - 1 garagem -93 de raea
+
+```{=html}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informações do Imóvel</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+  .info-block {
+    display: inline-block;
+    margin: 5px;
+    background: #FFF;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    padding: 15px;
+    width: 200px; /* Largura do bloco */
+  }
+
+  .info-block i {
+    color: #FFC107; /* Cor do ícone */
+    margin-right: 5px;
+  }
+
+  .info-block p {
+    margin: 5px 0;
+    color: #333;
+    font-size: 0.9rem;
+  }
+</style>
+</head>
+<body>
+
+<div class="info-block">
+    <i class="fas fa-bed"></i>
+    <p>0 quartos (0 suítes)</p>
+</div>
+
+<div class="info-block">
+    <i class="fas fa-car"></i>
+    <p>0 vagas de garagem</p>
+</div>
+
+<div class="info-block">
+    <i class="fas fa-ruler-combined"></i>
+    <p>Área total: 1200 m²</p>
+</div>
+
+<div class="info-block">
+    <i class="fas fa-ruler-combined"></i>
+    <p>Área privativa: 1200 m²</p>
+</div>
+
+</body>
+</html>
+
+```
+#### infraestrutura
+
+Piscina Salão de festa
+
+::: grid
+::: {.g-col-12 .g-col-lg-6}
+### Sobre Esse Imóvel
+
+Localizado em uma das áreas mais desejadas da cidade, este imóvel oferece conforto, segurança e conveniência. Preço abaixo da média do mercado, tornando-se uma excelente oportunidade de investimento ou moradia.
+:::
+
+::: {.g-col-12 .g-col-lg-6}
+### Aluguel
+
+Fale agora com o anunciante
+:::
+:::
+
+## Referência de Preço
+
+```{=html}
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variação de Aluguel - Saguaçu, Joinville</title>
+    <style>
+        .price-range-container {
+            width: 100%;
+            margin: 20px auto;
+        }
+
+        .price-range-bar {
+            position: relative;
+            height: 20px;
+            background-color: #ddd;
+            border-radius: 10px;
+        }
+
+        .indicator {
+            position: absolute;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .average-price-indicator {
+            background-color: blue;
+            left: 50%;
+        }
+
+        .offered-price-indicator {
+            background-color: green;
+            left: calc(42% - 10px);
+        }
+
+        .tooltip {
+            visibility: hidden;
+            width: 200px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 30px;
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: black transparent transparent transparent;
+        }
+
+        .indicator:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .price-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 5px;
+        }
+
+        .legend {
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+
+        .legend span {
+            display: inline-block;
+            margin-right: 15px;
+        }
+
+        .legend-color-box {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <div class="price-range-container">
+        <div class="price-range-bar">
+            <div class="indicator average-price-indicator">
+                <span class="tooltip">Média de aluguel na região para imóveis com características parecidas.</span>
+            </div>
+            <div class="indicator offered-price-indicator">
+                <span class="tooltip">Preço que está sendo ofertado pelo proprietário.</span>
+            </div>
+        </div>
+        <div class="price-labels">
+            <span>R$ 1.000</span>
+            <span>R$ 5.000</span>
+        </div>
+        <div class="legend">
+            <span><div class="legend-color-box" style="background-color: blue;"></div>Média de Aluguel na Região</span>
+            <span><div class="legend-color-box" style="background-color: green;"></div>Preço Ofertado</span>
+        </div>
+    </div>
+</body>
+</html>
+
+```
+Alerta
+
+```{=html}
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alerta de Imóvel</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+    <style>
+        .alert {
+            display: none; /* Inicialmente oculto */
+            padding: 10px 20px;
+            background-color: #ffeb3b; /* Cor de fundo amarela */
+            color: black; /* Cor do texto preto */
+            text-align: center; /* Alinhamento do texto */
+            margin: 0; /* Sem margens */
+            width: 100%; /* Largura total */
+        }
+
+        .alert i {
+            font-size: 20px; /* Tamanho normal do ícone */
+            vertical-align: middle; /* Alinhamento vertical com o texto */
+            margin-right: 10px;
+        }
+
+        .alert strong {
+            font-size: 14px; /* Tamanho menor do texto */
+        }
+    </style>
+</head>
+<body>
+    <div class="alert" id="alertBox">
+        <i class="fas fa-exclamation-circle"></i>
+        <strong>Imóvel situado em uma região de alta procura.</strong>
+    </div>
+
+    <script>
+        window.onload = function() {
+            var delay = Math.random() * (9000 - 1000) + 1000; // Tempo aleatório entre 9000ms (9s) e 15000ms (15s)
+            setTimeout(function() {
+                document.getElementById('alertBox').style.display = 'block';
+            }, delay);
+        };
+    </script>
+</body>
+</html>
+```
+
+
+## FAQ - Aluguel de Imóveis
+```{=html}
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <style>
+        
+
+        .faq-container {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .faq {
+            margin-bottom: 10px;
+            background-color: #f3f3f3;
+            border-radius: 5px;
+        }
+
+        .faq-question {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .faq-question h3 {
+            margin: 0;
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 10px;
+        }
+
+        .faq-answer p, .faq-answer ul {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="faq-container">
+
+        <div class="faq">
+            <div class="faq-question" onclick="toggleAnswer('answer1')">
+                <h3>O que preciso para alugar esse imóvel?</h3>
+            </div>
+            <div class="faq-answer" id="answer1">
+                <ol>
+        <li>Agendar uma visita ao imóvel.</li>
+        <li>Enviar os documentos necessários para a locação.</li>
+        <li>Escolher a garantia locatícia e aguardar a análise de crédito.</li>
+        <li>Assinar o contrato de locação e realizar a vistoria inicial.</li>
+        <li>Solicitar a ligação de energia junto à Celesc.</li>
+        <li>Verificar as regras do condomínio (se aplicável) e programar sua mudança.</li>
+        <li>Retirar as chaves e desfrutar do seu novo lar!</li>
+    </ol>
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="faq-question" onclick="toggleAnswer('answer2')">
+                <h3>Qual Modalidades de Fiança?</h3>
+            </div>
+            <div class="faq-answer" id="answer2">
+    <p><strong>Opções de Garantia Locatícia</strong></p>
+    <ul>
+        <li>Caução, valor a ser definido com os proprietários.</li>
+        <li>Fiador.</li>
+    </ul>
+
+    <p><strong>Documentação Exigida</strong></p>
+    <p>É necessário comprovar renda de pelo menos três vezes o valor do aluguel. Abaixo estão os documentos exigidos:</p>
+    <ul>
+        <li>Para empregados registrados: Carteira de Trabalho e os três últimos holerites.</li>
+        <li>Para autônomos: Extrato bancário dos últimos três meses.</li>
+        <li>Cópia do RG e CPF.</li>
+    </ul>
+    <p><strong>Atenção:</strong> É imprescindível que nenhuma das partes envolvidas tenha restrições em seu nome.</p>
+</div>
+        </div>
+    </div>
+
+    <script>
+        function toggleAnswer(answerId) {
+            var answer = document.getElementById(answerId);
+            if (answer.style.display === "none") {
+                answer.style.display = "block";
+            } else {
+                answer.style.display = "none";
+            }
+        }
+
+        // Inicializa as respostas como ocultas
+        document.addEventListener("DOMContentLoaded", function() {
+            var answers = document.getElementsByClassName('faq-answer');
+            for (var i = 0; i < answers.length; i++) {
+                answers[i].style.display = "none";
+            }
+        });
+    </script>
+</
+
+```
+```{=html}
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Aluguel de Imóveis</title>
+    <style>
+        /* Estilos existentes aqui */
+
+        .whatsapp-icon {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            z-index: 1000;
+        }
+
+        .whatsapp-icon img {
+            width: 50px;
+            height: 50px;
+            transition: transform 0.5s;
+        }
+
+        .move {
+            animation: shake 0.5s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+            100% { transform: translateX(0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Conteúdo existente aqui -->
+
+    <!-- Ícone do WhatsApp -->
+    <a href="https://wa.me/SEUNUMERO" target="_blank" class="whatsapp-icon">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+
+    <script>
+        const whatsappIcon = document.querySelector('.whatsapp-icon img');
+        setInterval(() => {
+            whatsappIcon.classList.toggle('move');
+        }, 15000);
+    </script>
+</body>
+</html>
+
+
+```
+
