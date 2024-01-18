@@ -1,7 +1,23 @@
 ---
-title: "Aluga-se Apartamento R$ 2.200,00"
+title: "Aluga-se Apartamento | R$ 2.200,00"
 ---
+<!-- Inclua isso no seu HTML -->
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "https://alugue-ap.com/"; // Altere para o caminho da sua página protegida
+        });
+      }
+    });
+  }
+  window.netlifyIdentity.init();
+});
 
+</script>
 <i class="fas fa-map-marker-alt"></i> Rua Água Marinha nº 540, Saguaçu, Joinville-SC
 
 ::: panel-tabset
@@ -161,7 +177,6 @@ Localizado em uma das áreas mais desejadas da cidade, este imóvel oferece conf
 
 ::: grid
 ::: {.g-col-12 .g-col-lg-6}
-
 ```{=html}
 <!DOCTYPE html>
 <html lang="pt">
@@ -246,14 +261,10 @@ Localizado em uma das áreas mais desejadas da cidade, este imóvel oferece conf
     </div>
 </body>
 </html>
-
-
 ```
-
 :::
 
 ::: {.g-col-12 .g-col-lg-6}
-
 ```{=html}
 <script>
 function shareDocument() {
@@ -360,18 +371,18 @@ function shareDocument() {
 <div class="info-bloco">
     <div class="preco">R$ 950,00</div>
     <table class="info-tabela">
-    <tr>
-        <td class="titulo">Aluguel</td>
-        <td class="valor">R$ 950 / mês</td>
-    </tr>
-    <tr>
-        <td class="titulo">Condomínio</td>
-        <td class="valor">Não informado</td>
-    </tr>
-    <tr>
-        <td class="titulo">IPTU</td>
-        <td class="valor">Não informado</td>
-    </tr>
+<tr>
+<td class="titulo">Aluguel</td>
+<td class="valor">R$ 950 / mês</td>
+</tr>
+<tr>
+<td class="titulo">Condomínio</td>
+<td class="valor">Não informado</td>
+</tr>
+<tr>
+<td class="titulo">IPTU</td>
+<td class="valor">Não informado</td>
+</tr>
 </table>
     <a href="javascript:void(0)" class="botao-whatsapp" onclick="contatoWhatsApp()"> <i class="fab fa-whatsapp"></i> &nbsp Fale pelo WhatsApp</a>
 
@@ -538,8 +549,6 @@ function shareDocument() {
 </body>
 </html>
 ```
-
-
 <!-- Alertas para inserir -->
 
 ```{=html}
@@ -589,16 +598,16 @@ function shareDocument() {
 </body>
 </html>
 ```
-
-### Principais Dúvidas e Questionamentos 
-
+### Principais Dúvidas e Questionamentos
 
 ```{=html}
 <!DOCTYPE html>
 <html lang="pt">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        
+        /* Estilos existentes aqui */
 
         .faq-container {
             width: 100%;
@@ -614,6 +623,11 @@ function shareDocument() {
         .faq-question {
             padding: 10px;
             cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .faq-question:hover {
+            background-color: #e0e0e0;
         }
 
         .faq-question h3 {
@@ -629,73 +643,118 @@ function shareDocument() {
             margin: 0;
             padding: 0;
         }
+
+        /* Estilos para a animação da pergunta */
+        .faq-question.active {
+            background-color: #e0e0e0;
+        }
+
     </style>
 </head>
 <body>
     <div class="faq-container">
+        <!-- Conteúdo existente aqui -->
 
-        <div class="faq">
-            <div class="faq-question" onclick="toggleAnswer('answer1')">
-                <h3>01 O que preciso para alugar esse imóvel?</h3>
-            </div>
-            <div class="faq-answer" id="answer1">
-                <ol>
-        <li>Agendar uma visita ao imóvel (opcional).</li>
-        <li>Enviar os documentos necessários para a locação.</li>
-        <li>Escolher a garantia locatícia e aguardar a análise de crédito.</li>
-        <li>Assinar o contrato de locação e realizar a vistoria inicial.</li>
-        <li>Solicitar a ligação de energia junto à Celesc.</li>
-        <li>Verificar as regras do condomínio (se aplicável) e programar sua mudança.</li>
-        <li>Retirar as chaves e desfrutar do seu novo lar!</li>
-    </ol>
-            </div>
-        </div>
+        <script>
+            // Defina um conjunto de dados de perguntas e respostas
+            const faqs = [
+                {
+                    question: "1 O que preciso para alugar esse imóvel?",
+                    answer: ["<ol>",
+                        "<li> Agendar uma visita ao imóvel (opcional).</li>",
+                        "<li>Enviar os documentos necessários para a locação.</li>",
+                        "<li> Escolher a garantia locatícia e aguardar a análise de crédito.</li>",
+                        "<li> Assinar o contrato de locação e realizar a vistoria inicial.</li>",
+                        "<li> Solicitar a ligação ou transferência do fornecimento de energia junto à concessionária.</li>",
+                        "<li> Verificar as regras do condomínio (se aplicável) e programar sua mudança.</li>",
+                        "<li> Retirar as chaves e desfrutar do seu novo lar!</li>",
+                        "</ol>"
+                    ]
+                },
+                
+                {
+                    question: "2 Quais Documentos devem ser apresentados?",
+                    answer: [
+                         "É necessário comprovar renda de pelo menos três vezes o valor do aluguel. Abaixo estão os documentos exigidos:",
+                        "<ol>",
+                            "<li>Para empregados registrados: Carteira de Trabalho e os três últimos holerites.</li>",
+                            "<li>Para autônomos: Extrato bancário dos últimos três meses.</li>",
+                            "<li>Cópia do RG e CPF.</li>",
+                        "</ol>",
+                    ],
+                    additionalInfo: []
+                },
+                
+                {
+                    question: "3 Quais Garantias Locatícias são aceitas?",
+                    answer: ["<ol>",
+                        "<li> Caução, valor a ser definido com os proprietários.</li>",
+                        "<li> Fiador.</li>",
+                        "</ol>",
+                    ],
+                    additionalInfo: []
+                },
+  
+                // Adicione mais perguntas e respostas conforme necessário
+            ];
 
-        <div class="faq">
-            <div class="faq-question" onclick="toggleAnswer('answer2')">
-                <h3>02 Quais Garantias Locatícias são aceitas?</h3>
-            </div>
-            
-            <div class="faq-answer" id="answer2">
-    <ol>
-        <li>Caução, valor a ser definido com os proprietários.</li>
-        <li>Fiador.</li>
-    </ol>
+            // Função para criar as perguntas e respostas dinamicamente
+            function createFAQs() {
+                const faqContainer = document.querySelector('.faq-container');
+                faqs.forEach((faq, index) => {
+                    const faqElement = document.createElement('div');
+                    faqElement.classList.add('faq');
 
-    <p><strong>Documentação Exigida</strong></p>
-    <p>É necessário comprovar renda de pelo menos três vezes o valor do aluguel. Abaixo estão os documentos exigidos:</p>
-    <ul>
-        <li>Para empregados registrados: Carteira de Trabalho e os três últimos holerites.</li>
-        <li>Para autônomos: Extrato bancário dos últimos três meses.</li>
-        <li>Cópia do RG e CPF.</li>
-    </ul>
-    <p><strong>Atenção:</strong> É imprescindível que nenhuma das partes envolvidas tenha restrições em seu nome.</p>
-</div>
-        </div>
+                    const questionElement = document.createElement('div');
+                    questionElement.classList.add('faq-question');
+                    questionElement.innerHTML = `<h3>${faq.question}</h3>`;
+                    questionElement.addEventListener('click', () => toggleAnswer(`answer${index}`));
+
+                    const answerElement = document.createElement('div');
+                    answerElement.classList.add('faq-answer');
+                    answerElement.id = `answer${index}`;
+                    answerElement.innerHTML = faq.answer.map(item => `<p>${item}</p>`).join('');
+
+                    if (faq.additionalInfo) {
+                        answerElement.innerHTML += faq.additionalInfo.join('');
+                    }
+
+                    faqElement.appendChild(questionElement);
+                    faqElement.appendChild(answerElement);
+                    faqContainer.appendChild(faqElement);
+                });
+            }
+
+            // Função para alternar a exibição das respostas
+            function toggleAnswer(answerId) {
+                var answer = document.getElementById(answerId);
+                var question = answer.previousElementSibling;
+
+                if (answer.style.display === "none") {
+                    answer.style.display = "block";
+                    question.classList.add('active');
+                } else {
+                    answer.style.display = "none";
+                    question.classList.remove('active');
+                }
+            }
+
+            // Inicializa as respostas como ocultas
+            document.addEventListener("DOMContentLoaded", function() {
+                createFAQs();
+                var answers = document.getElementsByClassName('faq-answer');
+                for (var i = 0; i < answers.length; i++) {
+                    answers[i].style.display = "none";
+                }
+            });
+        </script>
     </div>
 
-    <script>
-        function toggleAnswer(answerId) {
-            var answer = document.getElementById(answerId);
-            if (answer.style.display === "none") {
-                answer.style.display = "block";
-            } else {
-                answer.style.display = "none";
-            }
-        }
-
-        // Inicializa as respostas como ocultas
-        document.addEventListener("DOMContentLoaded", function() {
-            var answers = document.getElementsByClassName('faq-answer');
-            for (var i = 0; i < answers.length; i++) {
-                answers[i].style.display = "none";
-            }
-        });
-    </script>
-</
+    <!-- Blocos Fixos: WhatsApp e Tick de preço -->
+    <!-- Seção de WhatsApp e Bandeira de Preço permanece a mesma -->
+</body>
+</html>
 ```
-
-
 <!-- Blocos Fixos: WhatsApp e Tick de preço-->
 
 ```{=html}
@@ -770,12 +829,5 @@ function shareDocument() {
     </script>
 </body>
 </html>
-
 ```
-
 ### área de restições ou observações do imóvel
-
-
-
-
-

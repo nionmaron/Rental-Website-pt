@@ -126,8 +126,52 @@ gtag('config', 'G-JMQK6TVF6H', { 'anonymize_ip': true});
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conteúdo Protegido</title>
     <style>
+
+
+        #codigoAcesso {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        #codigoAcesso label, #codigoAcesso input, #codigoAcesso button {
+            margin: 10px;
+            font-size: 16px;
+        }
+
+        #codigoAcesso button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #codigoAcesso button:hover {
+            background-color: #0056b3;
+        }
+
         #conteudo {
             display: none;
+            padding: 20px;
+            text-align: center;
+        }
+
+        #conteudo h1 {
+            color: #333;
+        }
+
+        #conteudo p {
+            color: #666;
+        }
+
+        #mensagemErro {
+            color: red;
+            margin-top: 10px;
         }
     </style>
 
@@ -136,28 +180,41 @@ gtag('config', 'G-JMQK6TVF6H', { 'anonymize_ip': true});
         <label for="codigo">Digite o código para acessar o conteúdo:</label>
         <input type="text" id="codigo">
         <button onclick="verificarCodigo()">Acessar</button>
+        <div id="mensagemErro"></div>
     </div>
 
     <div id="conteudo">
-        <!-- Seu conteúdo protegido aqui -->
         <h1>Conteúdo Protegido</h1>
         <p>Este é o conteúdo protegido que só pode ser visto após digitar o código correto.</p>
     </div>
 
     <script>
+        var tentativas = 0;
+
         function verificarCodigo() {
             var codigo = document.getElementById("codigo").value;
             var conteudo = document.getElementById("conteudo");
             var codigoAcesso = document.getElementById("codigoAcesso");
+            var mensagemErro = document.getElementById("mensagemErro");
 
-            if(codigo == 1+2+3+4) { // Substitua 'codigo_secreto' pelo código que você deseja usar
+            if (codigo === '1234') {
                 conteudo.style.display = 'block';
                 codigoAcesso.style.display = 'none';
+                mensagemErro.textContent = '';
             } else {
-                alert("Código incorreto!");
+                tentativas++;
+                if (tentativas < 3) {
+                    mensagemErro.textContent = "Código incorreto! Tentativas restantes: " + (3 - tentativas);
+                } else {
+                    mensagemErro.textContent = "Tentativas excedidas. Aguarde alguns momentos antes de tentar novamente.";
+                    document.getElementById("codigo").value = '';
+                    tentativas = 0; // Reseta o contador de tentativas
+                }
             }
         }
     </script>
+
+
 
 
 
