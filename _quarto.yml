@@ -20,6 +20,9 @@ website:
   navbar:
     search: false
     background: "#2E8BC0"
+    right: 
+       - text: "Acesso"
+         file: login.qmd
 
 
 format:

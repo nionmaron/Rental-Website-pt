@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>alugue-ap.com - Termos e Condições de Uso</title>
+<title>alugue-ap.com – login</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -71,15 +71,9 @@ gtag('config', 'G-JMQK6TVF6H', { 'anonymize_ip': true});
 
 
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="alugue-ap.com - Termos e Condições de Uso">
-<meta property="og:description" content="">
-<meta property="og:site-name" content="alugue-ap.com">
-<meta name="twitter:title" content="alugue-ap.com - Termos e Condições de Uso">
-<meta name="twitter:description" content="">
-<meta name="twitter:card" content="summary">
 </head>
 
-<body onload="replaceSiteName()" class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -97,7 +91,7 @@ gtag('config', 'G-JMQK6TVF6H', { 'anonymize_ip': true});
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./login.html" rel="" target="">
+    <a class="nav-link active" href="./login.html" rel="" target="" aria-current="page">
  <span class="menu-text">Acesso</span></a>
   </li>  
 </ul>
@@ -108,75 +102,90 @@ gtag('config', 'G-JMQK6TVF6H', { 'anonymize_ip': true});
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
-      <h1 class="title">Termos e Condições de Uso</h1>
-                      </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta">
-
-      
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    </div>
+    
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
+
+
+<hr>
+<hr>
 
 
 
 
+    <title>Login Simples</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .login-container {
+            width: 300px;
+            margin: 100px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #4cae4c;
+        }
+        .hide {
+            display: none;
+        }
+    </style>
 
 
+    <div class="login-container" id="loginContainer">
+        <h2 class="anchored">Login</h2>
+        <input type="text" id="username" placeholder="Usuário">
+        <input type="password" id="password" placeholder="Senha">
+        <input type="submit" value="Entrar" onclick="login()">
+    </div>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Termos e Condições de Uso</title>
+    <div class="login-container hide" id="logoutContainer">
+        <h2 class="anchored">Bem-vindo, <span id="user"></span>!</h2>
+        <input type="submit" value="Sair" onclick="logout()">
+    </div>
+
     <script>
-        function replaceSiteName() {
-            var siteName = "alugue-ap.com"; // Altere este valor para mudar o nome do site
-            document.querySelectorAll('.site-name').forEach(function(el) {
-                el.textContent = siteName;
-            });
+        function login() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // Simulação simples de login
+            if(username && password) {
+                document.getElementById('loginContainer').classList.add('hide');
+                document.getElementById('logoutContainer').classList.remove('hide');
+                document.getElementById('user').innerText = username;
+            } else {
+                alert("Por favor, insira o usuário e a senha.");
+            }
+        }
+
+        function logout() {
+            document.getElementById('loginContainer').classList.remove('hide');
+            document.getElementById('logoutContainer').classList.add('hide');
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
         }
     </script>
-
-
-    <h1>Termos e Condições de Uso do <span class="site-name"></span></h1>
-
-    <h2 class="anchored">1. Aceitação dos Termos</h2>
-    <p>Ao acessar e utilizar o <span class="site-name"></span>, você concorda em cumprir estes Termos e Condições de Uso. Se não concordar com algum dos termos, não utilize este site.</p>
-
-    <h2 class="anchored">2. Descrição do Serviço</h2>
-    <p>O <span class="site-name"></span> oferece uma plataforma online para que proprietários e anunciantes possam listar imóveis para venda ou locação. O <span class="site-name"></span> não é uma imobiliária e não participa de nenhuma transação imobiliária.</p>
-
-    <h2 class="anchored">3. Responsabilidade do Conteúdo</h2>
-    <p>Todos os anúncios e conteúdos são de responsabilidade exclusiva dos usuários que os postam no <span class="site-name"></span>. O <span class="site-name"></span> não verifica a precisão, legalidade ou integridade de qualquer anúncio e se isenta de qualquer responsabilidade relacionada a isso.</p>
-
-    <h2 class="anchored">4. Proibições</h2>
-    <p>É proibido postar no <span class="site-name"></span> conteúdo ilegal, enganoso, difamatório, discriminatório ou que viole direitos de terceiros. O <span class="site-name"></span> reserva-se o direito de remover qualquer anúncio que viole estas proibições.</p>
-
-    <h2 class="anchored">5. Direitos Autorais</h2>
-    <p>O conteúdo publicado pelos usuários no <span class="site-name"></span> deve respeitar direitos autorais. Conteúdos violando esses direitos serão removidos.</p>
-    <h2 class="anchored">6. Limitação de Responsabilidade</h2>
-<p>O <span class="site-name"></span> não será responsável por quaisquer danos diretos, indiretos, incidentais ou consequentes decorrentes do uso ou da incapacidade de usar o serviço.</p>
-
-<h2 class="anchored">7. Modificações dos Termos</h2>
-<p>O <span class="site-name"></span> reserva-se o direito de modificar estes Termos a qualquer momento. Sua continuidade no uso do site após tais modificações constitui aceitação dos novos Termos.</p>
-
-<h2 class="anchored">8. Lei Aplicável e Jurisdição</h2>
-<p>Estes Termos serão regidos pelas leis do país onde o <span class="site-name"></span> opera. Qualquer disputa relacionada a estes Termos será submetida à jurisdição exclusiva dos tribunais desse país.</p>
-
 
 
 

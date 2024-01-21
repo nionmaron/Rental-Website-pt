@@ -1,0 +1,82 @@
+---
+
+---
+
+```{=html}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Simples</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .login-container {
+            width: 300px;
+            margin: 100px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #4cae4c;
+        }
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container" id="loginContainer">
+        <h2>Login</h2>
+        <input type="text" id="username" placeholder="Usuário">
+        <input type="password" id="password" placeholder="Senha">
+        <input type="submit" value="Entrar" onclick="login()">
+    </div>
+
+    <div class="login-container hide" id="logoutContainer">
+        <h2>Bem-vindo, <span id="user"></span>!</h2>
+        <input type="submit" value="Sair" onclick="logout()">
+    </div>
+
+    <script>
+        function login() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // Simulação simples de login
+            if(username && password) {
+                document.getElementById('loginContainer').classList.add('hide');
+                document.getElementById('logoutContainer').classList.remove('hide');
+                document.getElementById('user').innerText = username;
+            } else {
+                alert("Por favor, insira o usuário e a senha.");
+            }
+        }
+
+        function logout() {
+            document.getElementById('loginContainer').classList.remove('hide');
+            document.getElementById('logoutContainer').classList.add('hide');
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
+        }
+    </script>
+</body>
+</html>
+
+```

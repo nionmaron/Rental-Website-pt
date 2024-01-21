@@ -9,16 +9,23 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Aluga-se Apartamento | R$ 2.200,00",
+    "title": "Aluga-se Apartamento",
     "section": "",
-    "text": "Rua Água Marinha nº 540, Saguaçu, Joinville-SC"
+    "text": "Rua Água Marinha nº 540, Saguaçu, Joinville-SC | R$ 2.200,00"
   },
   {
     "objectID": "index.html#referência-de-preço",
     "href": "index.html#referência-de-preço",
     "title": "Aluga-se Apartamento | R$ 2.200,00",
     "section": "Referência de Preço",
-    "text": "Referência de Preço\n\n\n\n    \n    \n    Variação de Aluguel - Saguaçu, Joinville\n    \n\n\n    \n        \n            \n                Média de aluguel na região para imóveis com características parecidas.\n            \n            \n                Preço que está sendo ofertado pelo proprietário.\n            \n        \n        \n            R$ 1.000\n            R$ 5.000\n        \n        \n            Média de Aluguel na Região\n            Preço Ofertado\n        \n    \n\n\n\n\n\n\n    \n    \n    Alerta de Imóvel\n    \n    \n\n\n    \n        \n        Imóvel situado em uma região de alta procura.\n    \n\n    \n\n\n\nPrincipais Dúvidas e Questionamentos\n\n\n\n    \n    \n    \n\n\n    \n        \n\n        \n    \n\n    \n    \n\n\n\n\n\n\n\n    \n    \n    \n\n\n    \n\n    \n    \n        \n    \n\n    \n    \n\n    \n\n\n\n\nárea de restições ou observações do imóvel"
+    "text": "Referência de Preço\n\n\n\n\n    \n    \n    Variação de Aluguel - Saguaçu, Joinville\n    \n\n\n    \n        \n            \n                Média de aluguel na região para imóveis com características parecidas.\n            \n            \n                Preço que está sendo ofertado pelo proprietário.\n            \n        \n        \n            R$ 1.000\n            R$ 5.000\n        \n        \n            Média de Aluguel na Região\n            Preço Ofertado"
+  },
+  {
+    "objectID": "login.html",
+    "href": "login.html",
+    "title": "alugue-ap.com",
+    "section": "",
+    "text": "Login Simples\n    \n\n\n    \n        Login\n        \n        \n        \n    \n\n    \n        Bem-vindo, !"
   },
   {
     "objectID": "modelo_contrato.html",
@@ -33,5 +40,12 @@
     "title": "Termos e Condições de Uso",
     "section": "",
     "text": "Termos e Condições de Uso\n    \n\n\n    Termos e Condições de Uso do \n\n    1. Aceitação dos Termos\n    Ao acessar e utilizar o , você concorda em cumprir estes Termos e Condições de Uso. Se não concordar com algum dos termos, não utilize este site.\n\n    2. Descrição do Serviço\n    O  oferece uma plataforma online para que proprietários e anunciantes possam listar imóveis para venda ou locação. O  não é uma imobiliária e não participa de nenhuma transação imobiliária.\n\n    3. Responsabilidade do Conteúdo\n    Todos os anúncios e conteúdos são de responsabilidade exclusiva dos usuários que os postam no . O  não verifica a precisão, legalidade ou integridade de qualquer anúncio e se isenta de qualquer responsabilidade relacionada a isso.\n\n    4. Proibições\n    É proibido postar no  conteúdo ilegal, enganoso, difamatório, discriminatório ou que viole direitos de terceiros. O  reserva-se o direito de remover qualquer anúncio que viole estas proibições.\n\n    5. Direitos Autorais\n    O conteúdo publicado pelos usuários no  deve respeitar direitos autorais. Conteúdos violando esses direitos serão removidos.\n    6. Limitação de Responsabilidade\nO  não será responsável por quaisquer danos diretos, indiretos, incidentais ou consequentes decorrentes do uso ou da incapacidade de usar o serviço.\n\n7. Modificações dos Termos\nO  reserva-se o direito de modificar estes Termos a qualquer momento. Sua continuidade no uso do site após tais modificações constitui aceitação dos novos Termos.\n\n8. Lei Aplicável e Jurisdição\nEstes Termos serão regidos pelas leis do país onde o  opera. Qualquer disputa relacionada a estes Termos será submetida à jurisdição exclusiva dos tribunais desse país."
+  },
+  {
+    "objectID": "index.html#referência-de-preço-na-região",
+    "href": "index.html#referência-de-preço-na-região",
+    "title": "Aluga-se Apartamento",
+    "section": "Referência de Preço Na Região",
+    "text": "Referência de Preço Na Região\n\n\n\n\n    \n    \n    Variação de Aluguel - Saguaçu, Joinville\n    \n\n\n    \n        \n            \n                Média de aluguel na região para imóveis com características parecidas.\n            \n            \n                Preço que está sendo ofertado pelo proprietário.\n            \n        \n        \n            R$ 1.000\n            R$ 5.000\n        \n        \n            Média de Aluguel na Região\n            Preço Ofertado"
   }
 ]

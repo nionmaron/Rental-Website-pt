@@ -1,8 +1,15 @@
 ---
-title: "Aluga-se Apartamento | R$ 2.200,00"
+title: "Aluga-se Apartamento"
 ---
+
 <!-- Inclua isso no seu HTML -->
+
+```{=html}
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+```
+
+
+```{=html}
 <script>
 document.addEventListener('DOMContentLoaded', function () {
   if (window.netlifyIdentity) {
@@ -18,120 +25,124 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 </script>
-<i class="fas fa-map-marker-alt"></i> Rua Água Marinha nº 540, Saguaçu, Joinville-SC
+```
+<i class="fas fa-map-marker-alt"></i> Rua Água Marinha nº 540, Saguaçu, Joinville-SC | R$ 2.200,00
 
 ::: panel-tabset
 ## Fotos
 
-```{=html}
+<!-- Renoamear as fotos -->
 
-<!DOCTYPE html>
-<html>
-<head>
-    <style>
-        .carousel {
-            width: 100%;
-            position: relative;
-            display: flex;
-            overflow: hidden;
-        }
+```{r include=FALSE}
+# Carregar biblioteca necessária
+library(tidyverse)
 
-        .carousel img {
-            width: 100%;
-            transition: transform 0.5s ease;
-        }
+# Função para renomear arquivos em uma pasta
+rename_files <- function(path, prefix) {
+  # Lista todos os arquivos na pasta
+  files <- list.files(path, full.names = TRUE)
 
-        .btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            cursor: pointer;
-            padding: 10px;
-            z-index: 100;
-        }
+  # Ordena os arquivos (opcional, dependendo da sua necessidade)
+  files <- sort(files)
 
-        .prev {
-            left: 10px;
-        }
+  # Cria os novos nomes dos arquivos
+  new_names <- sprintf("%s/%s-%02d.%s", path, prefix, 1:length(files), tools::file_ext(files))
 
-        .next {
-            right: 10px;
-        }
+  # Renomeia os arquivos
+  file.rename(files, new_names)
+}
 
-        .dot-container {
-            text-align: center;
-            padding: 10px;
-            background: rgba(0,0,0,0.2);
-        }
+# Caminhos das pastas
+path1 <- "Apartamento-Imagens/01-Principal-Capa"
+path2 <- "Apartamento-Imagens/02-Demais-Fotos"
 
-        .dot {
-            cursor: pointer;
-            height: 15px;
-            width: 15px;
-            margin: 0 2px;
-            background-color: #bbb;
-            border-radius: 50%;
-            display: inline-block;
-            transition: background-color 0.6s ease;
-        }
+# Renomear arquivos nas pastas
+rename_files(path1, "ap-foto")
+rename_files(path2, "ap-foto")
 
-        .active, .dot:hover {
-            background-color: #717171;
-        }
-    </style>
-</head>
-<body>
+```
 
-<div class="carousel" id="carousel">
-    <button class="btn prev" onclick="moveSlide(-1)">&#10094;</button>
-    <img src="imagens/ap.png" alt="Image 1">
-    <img src="imagens/ap2.png" alt="Image 2">
-    <img src="imagens/ap3.png" alt="Image 3">
-    <!-- Adicione mais imagens conforme necessário -->
-    <button class="btn next" onclick="moveSlide(1)">&#10095;</button>
-</div>
+<!-- Gerar HTML para as imagens nas pastas -->
 
-<div class="dot-container">
-    <span class="dot" onclick="currentSlide(0)"></span>
-    <span class="dot" onclick="currentSlide(1)"></span>
-    <span class="dot" onclick="currentSlide(2)"></span>
-    <!-- Adicione mais pontos conforme necessário -->
-</div>
+```{r include=FALSE}
+# Função para gerar tags HTML para imagens em uma pasta
+generate_html_tags <- function(path) {
+  # Lista todos os arquivos de imagem na pasta
+  files <- list.files(path, pattern = "\\.(jpg|jpeg|png|gif)$", full.names = FALSE)
+
+  # Gera tags HTML para cada arquivo de imagem
+  html_tags <- paste0('<img src="', path, '/', files, '" alt="Image ', seq_along(files), '">')
+
+  # Retorna as tags HTML
+  return(html_tags)
+}
+
+# Caminhos das pastas
+path1 <- "Apartamento-Imagens/01-Principal-Capa"
+path2 <- "Apartamento-Imagens/02-Demais-Fotos"
+
+# Gerar tags HTML
+html_tags1 <- generate_html_tags(path1)
+html_tags1
+html_tags2 <- generate_html_tags(path2)
+html_tags2
+library(htmltools)
+html_content <- readLines("templates-html/Carousels 02 Empty.html", warn = FALSE)
+marker_index <- grep("<!--INSERT_PHOTOS_HERE-->", html_content)
+html_content[marker_index] <- paste0(c(html_tags1,html_tags2), collapse = "")
+
+
+```
+
+
+<!-- tabset Fotos -->
 
 <script>
-    var slideIndex = 0;
-    showSlides(slideIndex);
+    // Seu código existente
 
-    function moveSlide(n) {
-        showSlides(slideIndex += n);
-    }
+    // Adicionando suporte para gestos de toque
+    let touchstartX = 0;
+    let touchendX = 0;
 
-    function currentSlide(n) {
-        showSlides(slideIndex = n);
-    }
+    const carousel = document.getElementById('customCarousel');
 
-    function showSlides(n) {
-        var i;
-        var slides = document.querySelectorAll('.carousel img');
-        var dots = document.getElementsByClassName("dot");
-        if (n >= slides.length) {slideIndex = 0}
-        if (n < 0) {slideIndex = slides.length - 1}
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.transform = "translateX(-" + slideIndex * 100 + "%)";
+    carousel.addEventListener('touchstart', e => {
+        touchstartX = e.changedTouches[0].screenX;
+    });
+
+    carousel.addEventListener('touchend', e => {
+        touchendX = e.changedTouches[0].screenX;
+        handleGesture();
+    });
+
+    function handleGesture() {
+        if (touchendX + 100 < touchstartX) {
+            customMoveSlide(1);
         }
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
+        
+        if (touchendX - 100 > touchstartX) {
+            customMoveSlide(-1);
         }
-        dots[slideIndex].className += " active";
     }
+
+    // Adicionando suporte para navegação pelo teclado
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowLeft') {
+            customMoveSlide(-1);
+        }
+
+        if (e.key === 'ArrowRight') {
+            customMoveSlide(1);
+        }
+    });
 </script>
 
-</body>
-</html>
+
+```{r, echo=FALSE, results='asis'}
+HTML(html_content)
 ```
+
+
 ```{r include=FALSE}
 # Instalar e carregar as bibliotecas necessárias
 if (!require("leaflet")) install.packages("leaflet")
@@ -141,32 +152,32 @@ if (!require("magrittr")) install.packages("magrittr")
 library(magrittr)
 
 # Definir as coordenadas
-ponto_central <- c(27.22, 138.26)
+ponto_central <- c(-26.281637, -48.832808)
 escola1 <- c(-24.38, 1.45)
 escola2 <- c(-30.43, -112.73)
 
 # Criar o mapa
 mapa <- leaflet() %>%
         addTiles() %>%  # Adiciona o mapa base
-        addMarkers(lng = ponto_central[2], lat = ponto_central[1], popup = "Ponto Central") %>%
-        addMarkers(lng = escola1[2], lat = escola1[1], popup = "Escola 1") %>%
-        addMarkers(lng = escola2[2], lat = escola2[1], popup = "Escola 2") %>%
-        addCircles(lng = ponto_central[2], lat = ponto_central[1], radius = 2000, color = "red", fillColor = "red", fillOpacity = 0.5) %>%
-        addCircles(lng = escola1[2], lat = escola1[1], radius = 2000, color = "blue", fillColor = "blue", fillOpacity = 0.5) %>%
-        addCircles(lng = escola2[2], lat = escola2[1], radius = 2000, color = "green", fillColor = "green", fillOpacity = 0.5)
+        addMarkers(lng = ponto_central[2], lat = ponto_central[1], popup = "Apartamento Para Locação") %>%
+        #addMarkers(lng = escola1[2], lat = escola1[1], popup = "Escola 1") %>%
+        #addMarkers(lng = escola2[2], lat = escola2[1], popup = "Escola 2") %>%
+        addCircles(lng = ponto_central[2], lat = ponto_central[1], radius = 20, color = "red", fillColor = "red", fillOpacity = 0.5)
+        #addCircles(lng = escola1[2], lat = escola1[1], radius = 2000, color = "blue", fillColor = "blue", fillOpacity = 0.5) %>%
+        #addCircles(lng = escola2[2], lat = escola2[1], radius = 2000, color = "green", fillColor = "green", fillOpacity = 0.5)
 
 
 ```
 
-## Mapa
+## Localização
 
-```{r}
+```{r, echo=FALSE, results='asis'}
 mapa
 ```
 
 ## Street View
 
-<iframe src="https://www.google.com/maps/embed?pb=!4v1705170245487!6m8!1m7!1sDC3O_UWJJxSLIjZQRfNSIw!2m2!1d-26.28140307415483!2d-48.8327370375557!3f102.99728367471585!4f2.059071045837925!5f0.7820865974627469" width="100%" height="450" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+<iframe src="https://www.google.com/maps/embed?pb=!4v1705170245487!6m8!1m7!1sDC3O_UWJJxSLIjZQRfNSIw!2m2!1d-26.28140307415483!2d-48.8327370375557!3f102.99728367471585!4f2.059071045837925!5f0.7820865974627469" width="100%" height="400" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
 
 </iframe>
 :::
@@ -264,6 +275,8 @@ Localizado em uma das áreas mais desejadas da cidade, este imóvel oferece conf
 ```
 :::
 
+<!-- Bloco de Preço -->
+
 ::: {.g-col-12 .g-col-lg-6}
 ```{=html}
 <script>
@@ -292,6 +305,8 @@ function shareDocument() {
         }
 </style>
 ```
+
+
 ```{=html}
 <!DOCTYPE html>
 <html>
@@ -369,19 +384,19 @@ function shareDocument() {
 <body>
 
 <div class="info-bloco">
-    <div class="preco">R$ 950,00</div>
+    <div class="preco">R$ 2.200,00</div>
     <table class="info-tabela">
 <tr>
 <td class="titulo">Aluguel</td>
-<td class="valor">R$ 950 / mês</td>
+<td class="valor">R$ 2.200,00 / mês</td>
 </tr>
 <tr>
 <td class="titulo">Condomínio</td>
-<td class="valor">Não informado</td>
+<td class="valor">R$ 550,00</td>
 </tr>
 <tr>
 <td class="titulo">IPTU</td>
-<td class="valor">Não informado</td>
+<td class="valor">R$ 80,00</td>
 </tr>
 </table>
     <a href="javascript:void(0)" class="botao-whatsapp" onclick="contatoWhatsApp()"> <i class="fab fa-whatsapp"></i> &nbsp Fale pelo WhatsApp</a>
@@ -427,128 +442,6 @@ function shareDocument() {
 :::
 :::
 
-## Referência de Preço
-
-```{=html}
-<!DOCTYPE html>
-<html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Variação de Aluguel - Saguaçu, Joinville</title>
-    <style>
-        .price-range-container {
-            width: 100%;
-            margin: 20px auto;
-        }
-
-        .price-range-bar {
-            position: relative;
-            height: 20px;
-            background-color: #ddd;
-            border-radius: 10px;
-        }
-
-        .indicator {
-            position: absolute;
-            top: 0;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            cursor: pointer;
-        }
-
-        .average-price-indicator {
-            background-color: blue;
-            left: 50%;
-        }
-
-        .offered-price-indicator {
-            background-color: green;
-            left: calc(42% - 10px);
-        }
-
-        .tooltip {
-            visibility: hidden;
-            width: 200px;
-            background-color: black;
-            color: #fff;
-            text-align: center;
-            border-radius: 6px;
-            padding: 5px 0;
-            position: absolute;
-            z-index: 1;
-            bottom: 30px;
-            left: 50%;
-            margin-left: -100px;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .tooltip::after {
-            content: "";
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            margin-left: -5px;
-            border-width: 5px;
-            border-style: solid;
-            border-color: black transparent transparent transparent;
-        }
-
-        .indicator:hover .tooltip {
-            visibility: visible;
-            opacity: 1;
-        }
-
-        .price-labels {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 5px;
-        }
-
-        .legend {
-            margin-top: 10px;
-            font-size: 0.9em;
-        }
-
-        .legend span {
-            display: inline-block;
-            margin-right: 15px;
-        }
-
-        .legend-color-box {
-            display: inline-block;
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            margin-right: 5px;
-            vertical-align: middle;
-        }
-    </style>
-</head>
-<body>
-    <div class="price-range-container">
-        <div class="price-range-bar">
-            <div class="indicator average-price-indicator">
-                <span class="tooltip">Média de aluguel na região para imóveis com características parecidas.</span>
-            </div>
-            <div class="indicator offered-price-indicator">
-                <span class="tooltip">Preço que está sendo ofertado pelo proprietário.</span>
-            </div>
-        </div>
-        <div class="price-labels">
-            <span>R$ 1.000</span>
-            <span>R$ 5.000</span>
-        </div>
-        <div class="legend">
-            <span><div class="legend-color-box" style="background-color: blue;"></div>Média de Aluguel na Região</span>
-            <span><div class="legend-color-box" style="background-color: green;"></div>Preço Ofertado</span>
-        </div>
-    </div>
-</body>
-</html>
-```
 <!-- Alertas para inserir -->
 
 ```{=html}
@@ -599,6 +492,8 @@ function shareDocument() {
 </html>
 ```
 ### Principais Dúvidas e Questionamentos
+
+<!-- Perguntas para tirar dúvidas -->
 
 ```{=html}
 <!DOCTYPE html>
@@ -755,6 +650,7 @@ function shareDocument() {
 </body>
 </html>
 ```
+
 <!-- Blocos Fixos: WhatsApp e Tick de preço-->
 
 ```{=html}
@@ -830,4 +726,133 @@ function shareDocument() {
 </body>
 </html>
 ```
-### área de restições ou observações do imóvel
+
+</br>
+
+## Referência de Preço Na Região
+
+<!-- Bloco de referência de Preço -->
+
+```{=html}
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variação de Aluguel - Saguaçu, Joinville</title>
+    <style>
+        .price-range-container {
+            width: 100%;
+            margin: 20px auto;
+        }
+
+        .price-range-bar {
+            position: relative;
+            height: 20px;
+            background-color: #ddd;
+            border-radius: 10px;
+        }
+
+        .indicator {
+            position: absolute;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .average-price-indicator {
+            background-color: blue;
+            left: 50%;
+        }
+
+        .offered-price-indicator {
+            background-color: green;
+            left: calc(42% - 10px);
+        }
+
+        .tooltip {
+            visibility: hidden;
+            width: 200px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 30px;
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: black transparent transparent transparent;
+        }
+
+        .indicator:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .price-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 5px;
+        }
+
+        .legend {
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+
+        .legend span {
+            display: inline-block;
+            margin-right: 15px;
+        }
+
+        .legend-color-box {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <div class="price-range-container">
+        <div class="price-range-bar">
+            <div class="indicator average-price-indicator">
+                <span class="tooltip">Média de aluguel na região para imóveis com características parecidas.</span>
+            </div>
+            <div class="indicator offered-price-indicator">
+                <span class="tooltip">Preço que está sendo ofertado pelo proprietário.</span>
+            </div>
+        </div>
+        <div class="price-labels">
+            <span>R$ 1.000</span>
+            <span>R$ 5.000</span>
+        </div>
+        <div class="legend">
+            <span><div class="legend-color-box" style="background-color: blue;"></div>Média de Aluguel na Região</span>
+            <span><div class="legend-color-box" style="background-color: green;"></div>Preço Ofertado</span>
+        </div>
+    </div>
+</body>
+</html>
+```
+
+</br>
+</br>

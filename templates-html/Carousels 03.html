@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .carousel {
+            width: auto;
+            height: 400px;
+            position: relative;
+            overflow: hidden;
+            margin: auto;
+        }
+
+        .carousel img {
+            display: none;
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+        }
+
+        .btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 2;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        /* Estilos para o modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 90%;
+            max-height: 80%;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="carousel" id="carousel">
+    <button class="btn prev" onclick="moveSlide(-1)">&#10094;</button>
+    <img src="imagens/ap0.jpg" alt="Image 1" onclick="openModal(); currentSlide(0)">
+    <img src="imagens/ap1.jpg" alt="Image 2" onclick="openModal(); currentSlide(1)">
+    <img src="imagens/ap2.jpg" alt="Image 3" onclick="openModal(); currentSlide(2)">
+    <!-- Adicione mais imagens conforme necessário -->
+    <button class="btn next" onclick="moveSlide(1)">&#10095;</button>
+</div>
+
+<!-- Modal -->
+<div id="myModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <div class="modal-content" id="modal-content">
+        <!-- Aqui serão inseridas as imagens do modal -->
+    </div>
+</div>
+
+<script>
+    var slideIndex = 0;
+    showSlides(slideIndex);
+
+    function moveSlide(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.querySelectorAll('.carousel img');
+        if (n >= slides.length) {slideIndex = 0}
+        if (n < 0) {slideIndex = slides.length - 1}
+        
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = 'none';  
+        }
+        slides[slideIndex].style.display = 'block';
+    }
+
+    // Funções para o modal
+    function openModal() {
+        document.getElementById('myModal').style.display = "block";
+        var modalContent = document.getElementById("modal-content");
+        var images = document.querySelectorAll('.carousel img');
+        modalContent.innerHTML = ''; // Limpa o conteúdo anterior
+        images.forEach(function(img, index) {
+            var modalImg = img.cloneNode();
+            modalImg.onclick = function() { currentSlide(index); };
+            modalContent.appendChild(modalImg);
+        });
+    }
+
+    function closeModal() {
+        document.getElementById('myModal').style.display = "none";
+    }
+
+    function currentSlide(n) {
+        var modalContent = document.getElementById("modal-content");
+        var modalImages = modalContent.getElementsByTagName("img");
+        slideIndex = n;
+        for (var i = 0; i < modalImages.length; i++) {
+            modalImages[i].style.display = "none";
+        }
+        modalImages[n].style.display = "block";
+    }
+</script>
+
+</body>
+</html>
