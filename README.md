@@ -3,6 +3,10 @@
 ## Descrição
 Este repositório contém um modelo de website desenvolvido com Quarto (Posit), ideal para quem deseja criar um site para aluguel ou venda de apartamento de forma individual. O modelo é facilmente adaptável e pode ser hospedado em qualquer plataforma de hospedagem gratuita.
 
+## Publicação Do Modelo
+- <https://alugue-ap.com/>
+- <https://rent127834.netlify.app/>
+
 ## Como Usar
 1. **Clone o Repositório**: Faça um clone deste repositório para ter uma cópia local em seu computador.
 2. **Personalize**: Adapte o modelo às suas necessidades, alterando textos, imagens e outros elementos conforme necessário.

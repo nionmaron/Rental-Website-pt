@@ -7,8 +7,6 @@ title: "Aluga-se Apartamento"
 ```{=html}
 <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 ```
-
-
 ```{=html}
 <script>
 document.addEventListener('DOMContentLoaded', function () {
@@ -26,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 </script>
 ```
-<i class="fas fa-map-marker-alt"></i> Rua Água Marinha nº 540, Saguaçu, Joinville-SC | R$ 2.200,00
+<i class="fas fa-map-marker-alt"></i> Rua Água Marinha nº 540, Saguaçu, Joinville-SC \| R\$ 2.200,00
 
 ::: panel-tabset
 ## Fotos
@@ -94,9 +92,9 @@ html_content[marker_index] <- paste0(c(html_tags1,html_tags2), collapse = "")
 
 ```
 
-
 <!-- tabset Fotos -->
 
+```{=html}
 <script>
     // Seu código existente
 
@@ -136,12 +134,10 @@ html_content[marker_index] <- paste0(c(html_tags1,html_tags2), collapse = "")
         }
     });
 </script>
-
-
+```
 ```{r, echo=FALSE, results='asis'}
 HTML(html_content)
 ```
-
 
 ```{r include=FALSE}
 # Instalar e carregar as bibliotecas necessárias
@@ -188,6 +184,7 @@ Localizado em uma das áreas mais desejadas da cidade, este imóvel oferece conf
 
 ::: grid
 ::: {.g-col-12 .g-col-lg-6}
+
 ```{=html}
 <!DOCTYPE html>
 <html lang="pt">
@@ -202,7 +199,7 @@ Localizado em uma das áreas mais desejadas da cidade, este imóvel oferece conf
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: 20px;
+            margin-top: 0px;
         }
         .section {
             background-color: #ffffff;
@@ -306,7 +303,6 @@ function shareDocument() {
 </style>
 ```
 
-
 ```{=html}
 <!DOCTYPE html>
 <html>
@@ -315,6 +311,7 @@ function shareDocument() {
 
         .info-bloco {
             border: 1px solid #ccc;
+            border-radius: 8px;
             padding: 20px;
             text-align: center;
             background-color: #fff;
@@ -382,7 +379,6 @@ function shareDocument() {
     </style>
 </head>
 <body>
-
 <div class="info-bloco">
     <div class="preco">R$ 2.200,00</div>
     <table class="info-tabela">
@@ -650,7 +646,6 @@ function shareDocument() {
 </body>
 </html>
 ```
-
 <!-- Blocos Fixos: WhatsApp e Tick de preço-->
 
 ```{=html}
@@ -726,7 +721,6 @@ function shareDocument() {
 </body>
 </html>
 ```
-
 </br>
 
 ## Referência de Preço Na Região
@@ -853,6 +847,4 @@ function shareDocument() {
 </body>
 </html>
 ```
-
-</br>
-</br>
+</br> </br>
